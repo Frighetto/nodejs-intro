@@ -1,0 +1,48 @@
+<html>
+
+<body>
+    <script>
+        function submitform(id, formid) {
+            var name = document.getElementById(id).value;
+            var form = document.getElementById(formid);
+            //alert("http://127.0.0.1:8081/" + formid + "/" + name);
+            form.setAttribute("action", "http://127.0.0.1:8081/" + formid + "/" + name);
+            form.submit();
+        }
+    </script>
+    <h3>Add Cliente</h3>
+    <form id="addCliente" method="POST">
+        Name: <input id="addClienteid" type="text" name="name"> <br>
+        CPF: <input type="text" name="cpf">
+        <button onclick="submitform('addClienteid','addCliente')">OK</button>
+    </form>
+    
+
+    <h3>Editar Cliente</h3>
+    Name: <input id="editClienteid" type="text" name="name"> <br>
+    <form id="editCliente" method="post">
+        
+        CPF: <input type="text" name="cpf">        
+        <button onclick="submitform('editClienteid','editCliente')">OK</button>
+    </form>
+
+    <h3>Consultar Cliente</h3>
+    <form id="getCliente" method="GET">
+        Name: <input id="getClienteid" type="text" name="name"> <br>
+        <button onclick="submitform('getClienteid','getCliente')">OK</button>
+    </form>
+
+    <h3>Exibir Clientes</h3>
+    <form action="http://127.0.0.1:8081/getClientes" method="GET">       
+        <input type="submit" value="Submit">
+    </form>
+
+    <h3>Deletar Clientes</h3>
+    <form id="deleteCliente" method="post">
+        Name: <input id="deleteClienteid" type="text" name="name"> <br>
+        <button onclick="submitform('deleteClienteid','deleteCliente')">OK</button>
+    </form>
+
+</body>
+
+</html>
